@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useEffect, useRef } from "react"
+import { useTodo } from "./TodoContext"
 
-function TodoForm({ addTodo }) {
-    const [value, setValue] = React.useState("");
+const TodoForm = () => {
+    const todo = useTodo()
+
+    const [value, setValue] = React.useState("")
+    const todoInputRef = useRef(null)
 
     const handleSubmit = event => {
         event.preventDefault();
         if (!value) return;
-        addTodo(value);
+        todo.addTodo(value);
         setValue("");
     };
 
-    return (
+    useEffect(() => {
+        console.log(`Todo to do: ${todoInputRef.current.value}`)
+    }, [value])
 
+    return (
         <div className="inputField">
             <form onSubmit={handleSubmit}>
                 <input
+                    ref={todoInputRef}
                     type="text"
                     className="input"
                     value={value}

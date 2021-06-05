@@ -2,9 +2,12 @@
   height: 100vh;
   padding: 50px;
   font-family: "Century Gothic", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.todo-list {
+.todo-list, .motivations {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,9 +15,20 @@
   background: #64c3b1;
   border-radius: 10px;
   width: 50%;
-  margin: 0 auto;
+  margin: 5px auto;
   padding: 5px;
   box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.15);
+}
+
+.motivations {
+  background-color: white;
+}
+
+.todo-list h1 {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px #7e7f85;
+  margin: 4px;
 }
 
 .todo {
@@ -29,6 +43,15 @@
   padding: 5px 10px;
 }
 
+.todo button {
+  margin-left: 4px;
+}
+
+.todo p {
+  margin: 0;
+  cursor: pointer;
+}
+
 .inputField {
   width: 100%;
   display: flex;
@@ -36,18 +59,30 @@
   align-items: center;
 }
 
-.inputField input, .inputField button {
+.inputField input, .inputField button, .motivations button {
   margin: 5px;
   width: 45%;
   border-radius: 10px;
   border: none;
 }
 
+.motivations button {
+  width: 60%;
+}
+
+.motivations li {
+  color: #303030;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 2px;
+  border-radius: 5px;
+}
+
 .inputField input {
   box-shadow: 3px 3px 0 rgb(23,159,133);
 }
 
-.inputField button {
+.inputField button, .motivations button {
   font-family: "Century Gothic", sans-serif;
   font-weight: bold;
   padding: 5px;
@@ -55,6 +90,7 @@
   color: white;
   box-shadow: 3px 3px 0 rgb(255, 255, 255);
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .inputField form {
@@ -62,4 +98,21 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.form button {
+  font-family: "Century Gothic", sans-serif;
+}
+
+.checkboxDelete {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
 }
