@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO } from "./actions";
+import { ADD_TODO, REMOVE_TODO } from "./types";
 
 export const initialState = {
     todos: []
@@ -7,10 +7,8 @@ export const initialState = {
 export const reducer = (state, action) => {
     switch (action.type) {
         case ADD_TODO: {
-            console.log(action)
             if (!state.todos.some(todo => todo.text.toLowerCase() === action.text.toLowerCase() )) {
                 const newTodos = [...state.todos, {text: action.text}]
-                console.log(newTodos)
                 return {
                     ...state,
                     todos: newTodos

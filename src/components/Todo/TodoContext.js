@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect, useReducer, useRef, useState } from "react"
 import { initialState, reducer } from "./store/reducer";
-import {ADD_TODO, REMOVE_TODO} from "./store/actions";
+import {ADD_TODO, REMOVE_TODO} from "./store/types";
 
 const TodoContext = React.createContext()
 
