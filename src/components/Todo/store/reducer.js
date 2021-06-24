@@ -18,8 +18,9 @@ export const reducer = (state, action) => {
             }
         }
         case REMOVE_TODO: {
-                const newTodos = [...state.todos]
-                newTodos.splice(action.index, 1)
+            const newTodos = [...state.todos];
+
+            newTodos.splice(action.index, 1)
                 return {
                     ...state,
                     todos: newTodos

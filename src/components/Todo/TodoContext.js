@@ -1,6 +1,6 @@
-import React, { useCallback, useContext, useEffect, useReducer, useRef, useState } from "react"
+import React, { useContext, useReducer } from "react"
 import { initialState, reducer } from "./store/reducer";
-import {ADD_TODO, REMOVE_TODO} from "./store/types";
+import { ADD_TODO, REMOVE_TODO } from "./store/types";
 
 const TodoContext = React.createContext()
 
@@ -11,17 +11,6 @@ export const useTodo = () => {
 export const TodoProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
-    const [todos, setTodos] = useState([]);
-    const renderCounter = useRef(1)
-
-    useEffect(() => {
-        renderCounter.current++
-    })
-
-    const calculateNumberOfTodos = useCallback(() => {
-        return todos.length
-    }, [todos.length])
-
     const addTodo = value => dispatch({ type: ADD_TODO, text: value })
     const removeTodo = index => dispatch({ type: REMOVE_TODO, index })
 
@@ -29,10 +18,8 @@ export const TodoProvider = ({ children }) => {
         <TodoContext.Provider value = {{
             show: state.show,
             todos: state.todos,
-            renderCounter,
             addTodo,
             removeTodo,
-            calculateNumberOfTodos,
         }}>
             {children}
         </TodoContext.Provider>

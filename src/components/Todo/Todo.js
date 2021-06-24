@@ -1,7 +1,7 @@
-import React, {useEffect, useMemo, useState} from "react"
+import React, { useMemo, useState} from "react"
 import { useTodo } from "./TodoContext";
 
-function Todo ({ todo }) {
+function Todo ({ todo, index }) {
     const todos = useTodo()
 
     const [isTodoToEdit, setIsTodoToEdit] = useState(false)
@@ -35,10 +35,6 @@ function Todo ({ todo }) {
         textDecoration: done ? "line-through" : "none"
     }), [done])
 
-    useEffect(() => {
-        console.log("Toggled Done")
-    }, [todoStyle])
-
     return (
         <div className="todo">
             <p style={todoStyle} onClick={() => setIsTodoToEdit(true)}>{toggledTodo}</p>
@@ -46,7 +42,7 @@ function Todo ({ todo }) {
                 <div className="checkboxDelete">
                     <label>Done</label>
                     <input type="checkbox" value={done} onClick={() => setDone(!done)}/>
-                    <button onClick={index => todos.removeTodo(index)}>x
+                    <button onClick={() => todos.removeTodo(index)}>x
                     </button>
                 </div>
             </>

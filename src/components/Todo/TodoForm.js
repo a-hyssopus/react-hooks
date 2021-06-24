@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useRef } from "react"
 import { useTodo } from "./TodoContext"
 
 const TodoForm = () => {
@@ -13,10 +13,6 @@ const TodoForm = () => {
         todo.addTodo(value);
         setValue("");
     };
-
-    useEffect(() => {
-        console.log(`Todo to do: ${todoInputRef.current.value}`)
-    }, [value])
 
     return (
         <div className="inputField">

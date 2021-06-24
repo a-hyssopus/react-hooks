@@ -1,12 +1,10 @@
-import React, { useEffect } from "react"
+import React from "react"
+import {useTodo} from "../Todo/TodoContext";
 
-const RenderedTodosNumber = ({ getNumberOfTodos }) => {
-    useEffect(() => {
-        console.log("Rendered Get Number Of Todos")
-    }, [getNumberOfTodos])
+const RenderedTodosNumber = ( ) => {
+    const todos = useTodo().todos
 
-    return <h1>You have {getNumberOfTodos()} things to do</h1>
+    return <h1>You have {todos.length} things to do</h1>
 }
-
 
 export default RenderedTodosNumber
